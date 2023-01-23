@@ -1,0 +1,1 @@
+Scaffold-DbContext "Server=.;Database=Pharmacy;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Project PharmacyAPI.EF -F

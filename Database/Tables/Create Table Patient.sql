@@ -1,0 +1,20 @@
+IF NOT EXISTS (SELECT 'X' FROM sys.tables WHERE name = 'Patient')
+
+BEGIN
+	CREATE TABLE Patient (
+		PatientID INT IDENTITY (1,1) NOT NULL,
+		[Name] NVARCHAR(100) NOT NULL,
+		DOB DATE NOT NULL,
+		[Address] NVARCHAR(100) NOT NULL,
+		NHSnumber NVARCHAR(10) NOT NULL,
+		Exemption NVARCHAR(1) NOT NULL,
+		PRIMARY KEY (PatientID)
+
+);
+
+END
+
+IF NOT EXISTS (SELECT 'X' FROM sys.columns WHERE object_id = OBJECT_ID('Patient') AND name = 'IsDeleted')
+BEGIN
+	ALTER TABLE Patient ADD IsDeleted BIT NOT NULL DEFAULT(0)
+END

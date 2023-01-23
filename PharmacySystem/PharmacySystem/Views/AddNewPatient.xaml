@@ -1,0 +1,95 @@
+﻿<Window x:Class="PharmacySystem.Views.AddNewPatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PharmacySystem.Views"
+        mc:Ignorable="d"
+        Title="Add New/Edit Patient" Height="400" Width="500" Background="SkyBlue" 
+        WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
+        BorderBrush="SlateGray" BorderThickness="3">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="CadetBlue" MouseDown="Border_MouseDown">
+            <Grid HorizontalAlignment="Stretch">
+                <Label FontWeight="SemiBold" FontSize="18" Foreground="WhiteSmoke"
+                       FontFamily="Comic Sans MS">
+                    Add New/Edit Patient
+                </Label>
+            </Grid>
+        </Border>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="170"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            
+            <Label Grid.Row="0" Grid.Column="0" Content="Name :" FontSize="18"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                   FontFamily="Comic Sans MS"/>
+            <Label  Grid.Row="1" Grid.Column="0" Content="DOB :" FontSize="18"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    FontFamily="Comic Sans MS"/>
+            <Label  Grid.Row="2" Grid.Column="0" Content="Address :" FontSize="18"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    FontFamily="Comic Sans MS"/>
+            <Label  Grid.Row="3" Grid.Column="0" Content="NHS number :" FontSize="18"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    FontFamily="Comic Sans MS"/>
+            <Label  Grid.Row="4" Grid.Column="0" Content="Exemption :" FontSize="18"
+                    HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                    FontFamily="Comic Sans MS"/>
+
+            <TextBox x:Name="txtName" Grid.Row="0" Grid.Column="1" Margin="0,13,50,13" FontSize="18"
+                     FontFamily="Comic Sans MS"/>
+            <DatePicker x:Name="dpDOB" Grid.Row="1" Grid.Column="1" Margin="0,13,50,13" FontSize="18"
+                        FontFamily="Comic Sans MS"/>
+            <TextBox x:Name="txtAddress" Grid.Row="2" Grid.Column="1" Margin="0,13,50,13" FontSize="18"
+                     FontFamily="Comic Sans MS"/>
+            <TextBox x:Name="txtNHSnumber" Grid.Row="3" Grid.Column="1" Margin="0,13,50,13" FontSize="18"
+                     FontFamily="Comic Sans MS"/>
+            <ComboBox x:Name="cboxExemption" Grid.Row="4" Grid.Column="1" Margin="0,13,50,13" FontSize="16"
+                      FontFamily="Comic Sans MS" Background="AliceBlue">
+                <ComboBoxItem Content="A - Over 60 or under 16"/>
+                <ComboBoxItem Content="B - 16 to 18, and in full time education"/>
+                <ComboBoxItem Content="D - maternity exemption"/>
+                <ComboBoxItem Content="E - medical exemption"/>
+                <ComboBoxItem Content="F - prepayment certificate"/>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Height="30" Width="100" x:Name="btnSavePatient"
+                        Content="Save" FontFamily="Comic Sans MS" FontSize="16"
+                        BorderBrush="SteelBlue" BorderThickness="3" Background="AliceBlue"
+                        Click="btnSavePatient_Click"/>
+            <Button Grid.Column="1" Height="30" Width="100" x:Name="btnCancelNewPatient" 
+                        Content="Cancel" FontFamily="Comic Sans MS" FontSize="16"
+                        BorderBrush="SteelBlue" BorderThickness="3"  Background="AliceBlue"
+                        Click="btnCancelNewPatient_Click" />
+        </Grid>
+    </Grid>
+</Window>
