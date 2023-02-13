@@ -1,6 +1,7 @@
 ﻿using PharmacySystem.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace PharmacySystem
     {
 
 
-        public List<Patients> allPatients = new List<Patients>();
+        public BindingList<Patients> allPatients = new BindingList<Patients>();
         Patients selectedPatient = new Patients();
         string currentTextSearch;
 
@@ -31,9 +32,13 @@ namespace PharmacySystem
         {
             InitializeComponent();
             //this.DataContext = new MainWindowViewModel();
-            allPatients.Add(new Patients() { Name = "Markie", Dob = Convert.ToDateTime("01/01/1992"), Address = "2 The Lane, York", Exemption = "A", Nhsnumber = "1234567890" });
-            allPatients.Add(new Patients() { Name = "Jenny", Dob = Convert.ToDateTime("03/03/1993"), Address = "15 The Lane, York", Exemption = "B", Nhsnumber = "0987654321" });
-            
+            allPatients.Add(new Patients() { Name = "Markie", Dob = Convert.ToDateTime("01/01/1992"), Address = "2 The Lane, York", 
+                Exemption = "A - Over 60 or under 16", Nhsnumber = "1234567890" });
+            allPatients.Add(new Patients() { Name = "Jenny", Dob = Convert.ToDateTime("03/03/1993"), Address = "15 The Lane, York", 
+                Exemption = "B - 16 to 18, and in full time education", Nhsnumber = "0987654321" });
+            dgvPatientSearchResult.ItemsSource = allPatients;
+
+
             
         }
 
@@ -76,6 +81,8 @@ namespace PharmacySystem
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
             selectedPatient = (Patients)dgvPatientSearchResult.SelectedItem;
+            PatientDetails patientDetails = new PatientDetails(selectedPatient);
+            patientDetails.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

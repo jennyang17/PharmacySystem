@@ -61,7 +61,7 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Row="0" Content="Patient Search Result" 
-                           FontSize="20" FontFamily="Comic Sans MS"/>
+                           FontSize="22" FontFamily="Comic Sans MS"/>
 
                     <DataGrid Grid.Row="1" x:Name="dgvPatientSearchResult" AutoGenerateColumns="False"
                               BorderBrush="SteelBlue" BorderThickness="3"  Background="AliceBlue"
