@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PharmacySystem
 {
-    public class Patients
+    public class Patient
     {
         public string Name { get; set; } = null!;
         public DateTime Dob { get; set; }

@@ -69,11 +69,6 @@
                      FontFamily="Comic Sans MS" Grid.ColumnSpan="2"/>
             <ComboBox x:Name="cboxExemption" Grid.Row="4" Grid.Column="1" Margin="0,13,50,13" FontSize="16"
                       FontFamily="Comic Sans MS" Background="AliceBlue" Grid.ColumnSpan="2">
-                <ComboBoxItem Content="A - Over 60 or under 16"/>
-                <ComboBoxItem Content="B - 16 to 18, and in full time education"/>
-                <ComboBoxItem Content="D - maternity exemption"/>
-                <ComboBoxItem Content="E - medical exemption"/>
-                <ComboBoxItem Content="F - prepayment certificate"/>
             </ComboBox>
         </Grid>
 

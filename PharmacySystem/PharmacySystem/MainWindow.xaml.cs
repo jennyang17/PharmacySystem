@@ -22,19 +22,20 @@ namespace PharmacySystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public BindingList<Patient> allPatients = new BindingList<Patient>();
+        public BindingList<Prescription> allPrescriptions = new BindingList<Prescription>();
+        public BindingList<Medicine> allMedicines = new BindingList<Medicine>();
 
-
-        public BindingList<Patients> allPatients = new BindingList<Patients>();
-        Patients selectedPatient = new Patients();
+        public Patient selectedPatient = new Patient();
         string currentTextSearch;
 
         public MainWindow()
         {
             InitializeComponent();
             //this.DataContext = new MainWindowViewModel();
-            allPatients.Add(new Patients() { Name = "Markie", Dob = Convert.ToDateTime("01/01/1992"), Address = "2 The Lane, York", 
+            allPatients.Add(new Patient() { Name = "Markie", Dob = Convert.ToDateTime("01/01/1992"), Address = "2 The Lane, York", 
                 Exemption = "A - Over 60 or under 16", Nhsnumber = "1234567890" });
-            allPatients.Add(new Patients() { Name = "Jenny", Dob = Convert.ToDateTime("03/03/1993"), Address = "15 The Lane, York", 
+            allPatients.Add(new Patient() { Name = "Jenny", Dob = Convert.ToDateTime("03/03/1993"), Address = "15 The Lane, York", 
                 Exemption = "B - 16 to 18, and in full time education", Nhsnumber = "0987654321" });
             dgvPatientSearchResult.ItemsSource = allPatients;
 
@@ -74,26 +75,26 @@ namespace PharmacySystem
 
         private void btnAddNew_Click(object sender, RoutedEventArgs e)
         {
-            AddNewPatient addNew = new AddNewPatient(this);
+            AddNewPatient addNew = new AddNewPatient(this, null);
             addNew.ShowDialog();
         }
 
         private void btnSelect_Click(object sender, RoutedEventArgs e)
         {
-            selectedPatient = (Patients)dgvPatientSearchResult.SelectedItem;
+            selectedPatient = (Patient)dgvPatientSearchResult.SelectedItem;
             PatientDetails patientDetails = new PatientDetails(selectedPatient);
             patientDetails.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            selectedPatient = (Patients)dgvPatientSearchResult.SelectedItem;
+            selectedPatient = (Patient)dgvPatientSearchResult.SelectedItem;
             allPatients.Remove(selectedPatient);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            List<Patients> searchedPatients = new List<Patients>();
+            List<Patient> searchedPatients = new List<Patient>();
             searchedPatients = allPatients.Where(p => p.Name == currentTextSearch).ToList();
             dgvPatientSearchResult.ItemsSource = searchedPatients;
 

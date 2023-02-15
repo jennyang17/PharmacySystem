@@ -116,9 +116,49 @@
 
                 <Button x:Name="btnEditPatient" Content="Edit Patient" Grid.Column="1" 
                         Width="200" Height="35" FontSize="20" FontFamily="Comic Sans MS"
-                        Background="AliceBlue" BorderBrush="SteelBlue" BorderThickness="3"/>
+                        Background="AliceBlue" BorderBrush="SteelBlue" BorderThickness="3"
+                        Click="btnEditPatient_Click"/>
             </Grid>
-            
+
+            <Grid Grid.Row="2">
+                
+                <Label Grid.Row="0" Content="Medication History" FontSize="24" FontFamily="Comic Sans MS"
+                       FontWeight="Bold" Margin="20,5,0,0"/>
+                
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                
+                <DataGrid Grid.Row="0" x:Name="dgvMedicationHistory" AutoGenerateColumns="False"
+                              BorderBrush="SteelBlue" BorderThickness="3"  Background="AliceBlue"
+                              FontFamily="Comic Sans MS" FontSize="20" Margin="15,0,15,5">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Date" Width="90" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Medication" Width="200" Binding="{Binding Dob}"/>
+                        <DataGridTextColumn Header="Quantity" Width="120" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Dosage instructions" Width="355" Binding="{Binding Nhsnumber}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" x:Name="btnEditItem" Content="Edit Item" 
+                            Width="200" Height="35" Margin="0,0,0,0" FontSize="20" FontFamily="Comic Sans MS"
+                        Background="AliceBlue" BorderBrush="SteelBlue" BorderThickness="3"/>
+                    <Button Grid.Column="1" x:Name="btnDeleteItem" Content="Delete Item" 
+                            Width="200" Height="35" Margin="0,0,0,0" FontSize="20" FontFamily="Comic Sans MS"
+                        Background="AliceBlue" BorderBrush="SteelBlue" BorderThickness="3"/>
+                </Grid>
+
+            </Grid>
         </Grid>
 
     </Grid>

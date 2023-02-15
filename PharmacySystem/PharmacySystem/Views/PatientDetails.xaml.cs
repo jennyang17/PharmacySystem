@@ -20,9 +20,10 @@ namespace PharmacySystem.Views
     /// </summary>
     public partial class PatientDetails : Window
     {
-        Patients _selectedPatient;
+        //MainWindow _mainWindow;
+        Patient _selectedPatient;
         BindingList<string> exemption = new BindingList<string>();
-        public PatientDetails(Patients selectedPatient)
+        public PatientDetails(Patient selectedPatient)
         {
             InitializeComponent();
             exemption.Add("A - Over 60 or under 16");
@@ -32,6 +33,7 @@ namespace PharmacySystem.Views
             exemption.Add("F - prepayment certificate");
             cboxExemption.ItemsSource = exemption;
 
+            //_mainWindow = mainWindow;
             _selectedPatient = selectedPatient;
 
             txtName.Text = _selectedPatient.Name;
@@ -69,6 +71,13 @@ namespace PharmacySystem.Views
             {
                 this.WindowState = WindowState.Normal;
             }
+        }
+
+        private void btnEditPatient_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewPatient editPatient = new AddNewPatient(null, _selectedPatient);
+            editPatient.ShowDialog();
+
         }
     }
 }
