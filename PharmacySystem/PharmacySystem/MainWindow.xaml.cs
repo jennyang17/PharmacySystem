@@ -75,8 +75,10 @@ namespace PharmacySystem
 
         private void btnAddNew_Click(object sender, RoutedEventArgs e)
         {
-            AddNewPatient addNew = new AddNewPatient(this, null);
+            AddNewPatient addNew = new AddNewPatient(this);
             addNew.ShowDialog();
+
+            
         }
 
         private void btnSelect_Click(object sender, RoutedEventArgs e)

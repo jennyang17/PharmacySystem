@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmacySystem.Views"
         mc:Ignorable="d"
-        Title="Add New/Edit Patient" Height="400" Width="500" Background="SkyBlue" 
+        Title="Add New Patient" Height="400" Width="500" Background="SkyBlue" 
         WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip"
         BorderBrush="SlateGray" BorderThickness="3">
     <Grid>
@@ -22,7 +22,7 @@
             <Grid HorizontalAlignment="Stretch">
                 <Label FontWeight="SemiBold" FontSize="18" Foreground="WhiteSmoke"
                        FontFamily="Comic Sans MS">
-                    Add New/Edit Patient
+                    Add New Patient
                 </Label>
             </Grid>
         </Border>

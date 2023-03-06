@@ -75,9 +75,12 @@ namespace PharmacySystem.Views
 
         private void btnEditPatient_Click(object sender, RoutedEventArgs e)
         {
-            AddNewPatient editPatient = new AddNewPatient(null, _selectedPatient);
-            editPatient.ShowDialog();
-
+            EditPatient editingPatient = new EditPatient(_selectedPatient);
+            editingPatient.ShowDialog();
+            
+            
         }
+
+       
     }
 }
